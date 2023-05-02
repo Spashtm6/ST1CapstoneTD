@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/main.css')}}">
+    <!---<meta http-equiv="X-UA-Compatible" content="ie=edge" />-->
+    <title>HD Prediction</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='styles/parallax.min.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+
+
+
+</head>
+<!--
+<nav>
+  <ul>
+  <li><a href="#home">Home</a></li>
+  <li style="float:right"><a class="active" href="#about">About</a></li>
+</ul>
+</nav>
+-->
+<div class="parallax-window" data-parallax="scroll" data-image-src="{{url_for('static', filename='images/thunderclap.jpg')}}">
+
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li style="float:right"><a class="active" href="about">About</a></li>
+    </ul>
+</div>
+
+<style>
+
+
+    .parallax-window {
+        min-height: 500px;
+        background: transparent;
+    }
+</style>
+<!--  <div class="containerforh">
+    <br>
+    <div class="quotemain">"Keeping your money safe"</div>
+-->
+</div>
+
+
+<body>
+
+    <div class="explaination">
+        <h2 class="abouth3"> About This Platform</h2>
+        <p class="info">
+            This platform is designed to predict Bank Customer Churn Rate. The data
+            being used to aid the algorithm has been taken from the Bank Customer Churn data set. The intended
+            audience for this application are banks who understand the input values and
+            have the provided data from customers. For more information
+            on the data attributes associated with our calculation, <a class="colorthisa"
+                                                                       href="https://www.kaggle.com/datasets/gauravtopre/bank-customer-churn-dataset?resource=download">Click Here.</a>
+        </p>
+    </div>
+
+
+    <h3>Bank Customer Churn Rate Platform</h3>
+
+
+    <!-- Form -->
+    <div class="complete_form">
+        <form action="/send" method="POST">
+
+            <div class="container1">
+                <label for="credit_scorelb">Credit Score: </label>
+                <input type="number" required
+                       placeholder="Enter Your Credit Score..."
+                       name="credit_score" />
+
+                <label for="countrylb">Country: </label>
+                <select name="country" required>
+                    <option value="France">France</option>
+                    <option value="Spain">Spain</option>
+                    <option value="Germany">Germany</option>
+                </select>
+
+                <label for="genderlb">Gender: </label>
+                <select name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label for="agelb">Age: </label>
+                <input type="number" required
+                       placeholder="Enter age..."
+                       name="age" />
+
+                <label for="tenurelb">Tenure: </label>
+                <input type="number" required
+                       placeholder="Enter tenure length..."
+                       name="tenure" />
+
+                <label for="balancelb">Customer Balance: </label>
+                <input type="number" required
+                       placeholder="Enter Your Balance..."
+                       name="balance" />
+            </div>
+
+            <div class="container2">
+
+                <label for="products_numberlb">Products Number: </label>
+                <input type="number" required
+                       placeholder="Enter number of  used..."
+                       name="products_number" />
+
+                <label for="credit_cardlb">Credit Card: </label>
+                <select name="credit_card" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label for="active_memberlb">Active Member: </label>
+                <select name="active_member" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+
+                <label for="estimated_salarylb">Estimated Salary: </label>
+                <input type="number" required
+                       placeholder="Enter Estimated Salary..."
+                       name="estimated_salary" />
+
+                <br />
+                <br />
+                <input type="submit" value="Predict" id="calc_btn" />
+                <br />
+            </div>
+            <div class="alert">
+                {{ predict }}
+            </div>
+        </form>
+    </div>
+
+
+
+
+</body>
+
+<footer>
+    <p>© 2023 - University of Canberra ST1_Capstone - Project. All Rights Reserved.
+</footer>
+</html>
